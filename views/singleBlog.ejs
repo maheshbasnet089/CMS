@@ -27,19 +27,19 @@
     color: black;
   }
 
-  .blog-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .page-content {
     padding: 20px;
   }
 
   .blog-card {
-    width: calc(33.33% - 20px);
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     padding: 20px;
     margin-bottom: 20px;
+  }
+
+  .blog-card h1 {
+    margin-top: 0;
   }
 
   .blog-card h2 {
@@ -49,34 +49,30 @@
   .blog-card p {
     margin: 10px 0;
   }
+
+  .delete-icon {
+    color: red;
+    cursor: pointer;
+    float: right;
+  }
 </style>
+<!-- Include Font Awesome stylesheet -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 
 <div class="navbar">
-  <a href="#">Home</a>
+  <a href="/">Home</a>
   <a href="/addBlog">Add Blog</a>
-
 </div>
 
-
-<div class="blog-container">
-    <% blogs.forEach((blog)=>{ %>
-        <div class="blog-card">
-            <h2> <%- blog.title %> </h2>
-            <h3><%- blog.subtitle %></h3>
-            <p><%- blog.description %></p>
-            <a href="/single/<%- blog.id %>">See More</a>
-          </div>
-
-    <% }) %>
-
- 
- 
-
-
-
-
+<div class="page-content">
+  <div class="blog-card">
+    <h1> <%- allBlogs[0].title %> </h1>
+    <h2><%- allBlogs[0].subtitle %> </h2>
+    <p> <%- allBlogs[0].description %></p>
+    <a href="/delete/<%-allBlogs[0].id %>">Delete Me</a>
+  </div>
 </div>
 
 </body>

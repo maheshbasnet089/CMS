@@ -9,13 +9,36 @@ app.set("view engine", "ejs");
 
 app.get("/", async (req, res) => {
   const allBlogs = await blogs.findAll();
-  console.log(allBlogs);
 
-  res.render("home",{blogs:allBlogs});
+  res.render("home", { blogs: allBlogs });
 });
 
 app.get("/addBlog", (req, res) => {
   res.render("addBlog");
+});
+
+app.get("/single/:id", async (req, res) => {
+  // parameter/url bata ko id
+  const id = req.params.id;
+
+  // yo id related matra data database bata tannu paryo
+
+  // const allBlogs = await blogs.findByPk(id);
+
+  const allBlogs = await blogs.findAll({
+    where: {
+      id,
+    },
+  });
+
+  res.render("singleBlog", { allBlogs });
+});
+
+app.get("/delete/:id", async (req, res) => {
+  // no UI
+  const id = req.params.id;
+  await blogs.destroy({ where: { id } });
+  res.redirect("/");
 });
 
 app.post("/createBlog", async (req, res) => {
