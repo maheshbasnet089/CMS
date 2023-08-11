@@ -2,8 +2,8 @@ module.exports = {
   HOST: "localhost",
   USER: "root",
   PASSWORD: "",
-  DB: "cms",
-  dialect: "mysql",
+  DB: "cms", // DATABASE NAME 
+  dialect: "mysql", // Kun variation of sql use garney
   pool: {
     max: 5,
     min: 0,
