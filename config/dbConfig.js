@@ -1,8 +1,9 @@
 module.exports = {
-  HOST: "localhost",
+  HOST: "containers-us-west-67.railway.app",
   USER: "root",
-  PASSWORD: "",
-  DB: "cms", // DATABASE NAME
+  PORT : 7355,
+  PASSWORD: "IQmnuvjAhnhwApCqKEB1",
+  DB: "railway", // DATABASE NAME
   dialect: "mysql", // Kun variation of sql use garney
   pool: {
     max: 5,
